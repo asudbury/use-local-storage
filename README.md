@@ -39,10 +39,7 @@ npm i @asudbury/use-local-storage
 import useLocalStorage from '@asudbury/use-local-storage';
 
 function MyComponent() {
-  const [value, setValue, { loading, error, remove }] = useLocalStorage(
-    'my-key',
-    'default-value'
-  );
+  const [value, setValue, { loading, error, remove }] = useLocalStorage('my-key', 'default-value');
 
   return (
     <div>

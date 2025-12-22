@@ -178,8 +178,8 @@ const IntroductionComponent = () => {
         <h1 style={storyStyles.gradientHeaderTitle}>useLocalStorage</h1>
 
         <p style={storyStyles.gradientHeaderSubtitle}>
-          A powerful React hook for LocalStorage management with comprehensive serialization
-          support and type safety
+          A powerful React hook for LocalStorage management with comprehensive serialization support
+          and type safety
         </p>
         <p style={{ fontSize: '13px', marginTop: '10px' }}>Version {pkg.version}</p>
       </div>

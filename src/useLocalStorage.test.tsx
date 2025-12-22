@@ -84,9 +84,7 @@ describe('useLocalStorage', () => {
       return value;
     };
 
-    const { result } = renderHook(() =>
-      useLocalStorage(key, defaultValue, { validator, onError })
-    );
+    const { result } = renderHook(() => useLocalStorage(key, defaultValue, { validator, onError }));
 
     await waitFor(() => {
       result.current[1]({ name: '', age: 20 }); // invalid
