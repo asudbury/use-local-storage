@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import useSessionStorage from '../useSessionStorage';
+import useLocalStorage from '../useLocalStorage';
 import { getButtonStyle, storyStyles } from './shared/storyStyles';
 
 const meta: Meta = {
@@ -38,7 +38,7 @@ const ObjectExample = () => {
     },
   };
 
-  const [user, setUser, { loading, error, remove, reset }] = useSessionStorage<User>(
+  const [user, setUser, { loading, error, remove, reset }] = useLocalStorage<User>(
     'user-profile',
     defaultUser
   );

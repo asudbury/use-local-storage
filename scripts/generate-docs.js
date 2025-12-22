@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 
 // Read the TypeScript source file
-const sourceFile = path.join(__dirname, '../src/useSessionStorage.ts');
+const sourceFile = path.join(__dirname, '../src/useLocalStorage.ts');
 const source = fs.readFileSync(sourceFile, 'utf8');
 
 // Extract JSDoc comments and interface definitions

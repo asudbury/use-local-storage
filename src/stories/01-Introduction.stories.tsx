@@ -1,12 +1,12 @@
 // 01-Introduction.stories.tsx
-// This file contains stories for the Introduction component of the useSessionStorage hook.
+// This file contains stories for the Introduction component of the useLocalStorage hook.
 // It showcases the capabilities and usage of the hook.
 import type { Meta, StoryObj } from '@storybook/react';
 import { storyStyles } from './shared/storyStyles';
 import pkg from '../../package.json';
 
 /**
- * Introduction to useSessionStorage hook - A comprehensive React hook for SessionStorage management.
+ * Introduction to useLocalStorage hook - A comprehensive React hook for LocalStorage management.
  *
  * This introduction provides an overview of the hook's capabilities, installation instructions,
  * and guides you through the various features and usage patterns available in the documentation.
@@ -29,9 +29,9 @@ const meta: Meta = {
     docs: {
       description: {
         component: `
-# 🚀 useSessionStorage
+# 🚀 useLocalStorage
 
-A powerful, production-ready React hook for SessionStorage management with comprehensive serialization support, type safety, and event handling.
+A powerful, production-ready React hook for LocalStorage management with comprehensive serialization support, type safety, and event handling.
 
 ## 🎯 Key Features
 
@@ -49,16 +49,16 @@ A powerful, production-ready React hook for SessionStorage management with compr
 ## 📦 Installation
 
 \`\`\`bash
-npm install @asudbury/use-session-storage
+npm install @asudbury/use-local-storage
 \`\`\`
 
 ## 🚀 Quick Start
 
 \`\`\`tsx
-import useSessionStorage from '@asudbury/use-session-storage';
+import useLocalStorage from '@asudbury/use-local-storage';
 
 function MyComponent() {
-  const [value, setValue, { loading, error, remove }] = useSessionStorage('my-key', 'default-value');
+  const [value, setValue, { loading, error, remove }] = useLocalStorage('my-key', 'default-value');
 
   return (
     <div>
@@ -86,7 +86,7 @@ interface User {
 }
 
 function UserProfile() {
-  const [user, setUser] = useSessionStorage<User>('user', {
+  const [user, setUser] = useLocalStorage<User>('user', {
     id: 0,
     name: '',
     email: ''
@@ -104,7 +104,7 @@ function UserProfile() {
 ### With Validation
 
 \`\`\`tsx
-const [count, setCount] = useSessionStorage('count', 0, {
+const [count, setCount] = useLocalStorage('count', 0, {
   validator: (value) => {
     if (typeof value !== 'number') throw new Error('Must be a number');
     if (value < 0) throw new Error('Must be positive');
@@ -116,7 +116,7 @@ const [count, setCount] = useSessionStorage('count', 0, {
 ### With Debouncing
 
 \`\`\`tsx
-const [text, setText] = useSessionStorage('text', '', {
+const [text, setText] = useLocalStorage('text', '', {
   debounceMs: 500 // Wait 500ms before writing to storage
 });
 \`\`\`
@@ -124,7 +124,7 @@ const [text, setText] = useSessionStorage('text', '', {
 ## ⚙️ Configuration Options
 
 \`\`\`tsx
-interface UseSessionStorageOptions<T> {
+interface UseLocalStorageOptions<T> {
   serializer?: {
     parse: (value: string) => T;
     stringify: (value: T) => string;
@@ -141,7 +141,7 @@ interface UseSessionStorageOptions<T> {
 Listen to storage changes across tabs and windows:
 
 \`\`\`tsx
-const [theme, setTheme] = useSessionStorage('theme', 'light');
+const [theme, setTheme] = useLocalStorage('theme', 'light');
 
 // Automatically syncs when changed in other tabs
 useEffect(() => {
@@ -175,10 +175,10 @@ const IntroductionComponent = () => {
     <div style={storyStyles.container}>
       {/* Header Section */}
       <div style={storyStyles.gradientHeader}>
-        <h1 style={storyStyles.gradientHeaderTitle}>useSessionStorage</h1>
+        <h1 style={storyStyles.gradientHeaderTitle}>useLocalStorage</h1>
 
         <p style={storyStyles.gradientHeaderSubtitle}>
-          A powerful React hook for SessionStorage management with comprehensive serialization
+          A powerful React hook for LocalStorage management with comprehensive serialization
           support and type safety
         </p>
         <p style={{ fontSize: '13px', marginTop: '10px' }}>Version {pkg.version}</p>
@@ -245,11 +245,11 @@ const IntroductionComponent = () => {
             }}
           >
             <span style={{ marginRight: '10px', color: '#666' }}>$</span>
-            npm install @asudbury/use-session-storage
+            npm install @asudbury/use-local-storage
           </pre>
           <button
             onClick={() => {
-              navigator.clipboard.writeText('npm install @asudbury/use-session-storage');
+              navigator.clipboard.writeText('npm install @asudbury/use-local-storage');
               // Show a brief success feedback
               const btn = document.activeElement as HTMLButtonElement;
               const originalHTML = btn.innerHTML;
@@ -960,10 +960,10 @@ const IntroductionComponent = () => {
             overflow: 'auto',
           }}
         >
-          {`import useSessionStorage from '@asudbury/use-session-storage';
+          {`import useLocalStorage from '@asudbury/use-local-storage';
 
 function MyComponent() {
-  const [value, setValue, { loading, error, remove }] = useSessionStorage('my-key', 'default-value');
+  const [value, setValue, { loading, error, remove }] = useLocalStorage('my-key', 'default-value');
 
   return (
     <div>
@@ -1048,7 +1048,7 @@ function MyComponent() {
 }
 
 function UserProfile() {
-  const [user, setUser] = useSessionStorage<User>('user', {
+  const [user, setUser] = useLocalStorage<User>('user', {
     id: 0,
     name: '',
     email: ''
@@ -1122,7 +1122,7 @@ function UserProfile() {
             overflow: 'auto',
           }}
         >
-          {`const [count, setCount] = useSessionStorage('count', 0, {
+          {`const [count, setCount] = useLocalStorage('count', 0, {
   validator: (value) => {
     if (typeof value !== 'number') throw new Error('Must be a number');
     if (value < 0) throw new Error('Must be positive');
@@ -1190,7 +1190,7 @@ function UserProfile() {
             overflow: 'auto',
           }}
         >
-          {`interface UseSessionStorageOptions<T> {
+          {`interface UseLocalStorageOptions<T> {
   serializer?: {
     parse: (value: string) => T;
     stringify: (value: T) => string;
@@ -1271,7 +1271,7 @@ function UserProfile() {
 /**
  * Introduction Story
  *
- * Welcome to useSessionStorage! This comprehensive introduction showcases
+ * Welcome to useLocalStorage! This comprehensive introduction showcases
  * the hook's capabilities and guides you through the documentation.
  */
 export const Introduction = {

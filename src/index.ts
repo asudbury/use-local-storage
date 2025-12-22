@@ -1,6 +1,6 @@
-export { default, useSessionStorage } from './useSessionStorage'
+export { default, useLocalStorage } from './useLocalStorage'
 export type {
-  UseSessionStorageOptions,
-  UseSessionStorageActions,
-  UseSessionStorageReturn
-} from './useSessionStorage'
+  UseLocalStorageOptions,
+  UseLocalStorageActions,
+  UseLocalStorageReturn
+} from './useLocalStorage'

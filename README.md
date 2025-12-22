@@ -1,12 +1,12 @@
-# useSessionStorage
+# useLocalStorage
 
-A powerful, production-ready React hook for SessionStorage management with comprehensive serialization support, type safety, and event handling.
+A powerful, production-ready React hook for LocalStorage management with comprehensive serialization support, type safety, and event handling.
 
 ## 📚 DeepWiki Project Knowledge Base
 
 > **Explore the full documentation, architecture, and deep technical notes for this project on DeepWiki:**
 >
-> [![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/asudbury/use-session-storage)
+> [![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/asudbury/use-local-storage)
 >
 > - Comprehensive guides, diagrams, and design decisions
 > - Contributor onboarding and advanced usage tips
@@ -30,16 +30,16 @@ A powerful, production-ready React hook for SessionStorage management with compr
 ## 📦 Installation
 
 ```bash
-npm i @asudbury/use-session-storage
+npm i @asudbury/use-local-storage
 ```
 
 ## 🚀 Quick Start
 
 ```tsx
-import useSessionStorage from '@asudbury/use-session-storage';
+import useLocalStorage from '@asudbury/use-local-storage';
 
 function MyComponent() {
-  const [value, setValue, { loading, error, remove }] = useSessionStorage(
+  const [value, setValue, { loading, error, remove }] = useLocalStorage(
     'my-key',
     'default-value'
   );
@@ -66,7 +66,7 @@ interface User {
 }
 
 function UserProfile() {
-  const [user, setUser] = useSessionStorage<User>('user', {
+  const [user, setUser] = useLocalStorage<User>('user', {
     id: 0,
     name: '',
     email: '',
@@ -84,7 +84,7 @@ function UserProfile() {
 ### With Validation
 
 ```tsx
-const [count, setCount] = useSessionStorage('count', 0, {
+const [count, setCount] = useLocalStorage('count', 0, {
   validator: (value) => {
     if (typeof value !== 'number') throw new Error('Must be a number');
     if (value < 0) throw new Error('Must be positive');
@@ -96,7 +96,7 @@ const [count, setCount] = useSessionStorage('count', 0, {
 ### With Debouncing
 
 ```tsx
-const [text, setText] = useSessionStorage('text', '', {
+const [text, setText] = useLocalStorage('text', '', {
   debounceMs: 500, // Wait 500ms before writing to storage
 });
 ```
@@ -104,7 +104,7 @@ const [text, setText] = useSessionStorage('text', '', {
 ## ⚙️ Configuration Options
 
 ```tsx
-interface UseSessionStorageOptions<T> {
+interface UseLocalStorageOptions<T> {
   serializer?: {
     parse: (value: string) => T;
     stringify: (value: T) => string;
@@ -121,7 +121,7 @@ interface UseSessionStorageOptions<T> {
 Listen to storage changes across tabs and windows:
 
 ```tsx
-const [theme, setTheme] = useSessionStorage('theme', 'light');
+const [theme, setTheme] = useLocalStorage('theme', 'light');
 
 // Automatically syncs when changed in other tabs
 useEffect(() => {
@@ -143,10 +143,10 @@ The hook provides comprehensive error handling for:
 ### Return Value
 
 ```tsx
-const [value, setValue, actions] = useSessionStorage(key, defaultValue, options);
+const [value, setValue, actions] = useLocalStorage(key, defaultValue, options);
 ```
 
-- `value`: Current value from sessionStorage
+- `value`: Current value from localStorage
 - `setValue`: Function to update the value
 - `actions`: Object with additional actions and states
   - `loading`: Boolean indicating if operation is in progress
@@ -164,14 +164,14 @@ MIT © Adrian Sudbury
 
 ## 🤝 Contributing
 
-Contributions are welcome! Please feel free to submit a [Pull Request](https://github.com/asudbury/use-session-storage/pulls).
+Contributions are welcome! Please feel free to submit a [Pull Request](https://github.com/asudbury/use-local-storage/pulls).
 
-- [Open a Pull Request](https://github.com/asudbury/use-session-storage/pulls)
-- [View All Issues](https://github.com/asudbury/use-session-storage/issues)
-- [Create a New Issue](https://github.com/asudbury/use-session-storage/issues/new)
+- [Open a Pull Request](https://github.com/asudbury/use-local-storage/pulls)
+- [View All Issues](https://github.com/asudbury/use-local-storage/issues)
+- [Create a New Issue](https://github.com/asudbury/use-local-storage/issues/new)
 
 ## 📞 Support
 
-If you have any questions or need help, please [Open an issue](https://github.com/asudbury/use-session-storage/issues) or use the links above.
+If you have any questions or need help, please [Open an issue](https://github.com/asudbury/use-local-storage/issues) or use the links above.
 
 Made with ❤️ for the React community

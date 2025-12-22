@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { useState } from 'react';
-import useSessionStorage from '../useSessionStorage';
+import useLocalStorage from '../useLocalStorage';
 import { getButtonStyle, storyStyles } from './shared/storyStyles';
 
 const meta: Meta = {
@@ -8,7 +8,7 @@ const meta: Meta = {
   parameters: {
     docs: {
       description: {
-        component: 'Basic string storage example using useSessionStorage.',
+        component: 'Basic string storage example using useLocalStorage.',
       },
     },
   },
@@ -18,7 +18,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 const StringStorageExample = () => {
-  const [name, setName, { loading, error, remove, reset }] = useSessionStorage(
+  const [name, setName, { loading, error, remove, reset }] = useLocalStorage(
     'user-name',
     'John Doe'
   );
@@ -34,7 +34,7 @@ const StringStorageExample = () => {
       <div style={storyStyles.gradientHeader}>
         <h1 style={storyStyles.gradientHeaderTitle}>String Storage</h1>
         <div style={{ fontSize: '1.1rem', color: '#fff', marginTop: 4 }}>
-          Basic string storage example using useSessionStorage.
+          Basic string storage example using useLocalStorage.
         </div>
       </div>
       <div style={storyStyles.card}>

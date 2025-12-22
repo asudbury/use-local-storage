@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import useSessionStorage from '../useSessionStorage';
+import useLocalStorage from '../useLocalStorage';
 import { getButtonStyle, storyStyles } from './shared/storyStyles';
 
 const meta: Meta = {
@@ -18,11 +18,11 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 const MultiInstanceExample = () => {
-  const [sharedCount1, setSharedCount1, { loading: loading1, error: error1 }] = useSessionStorage(
+  const [sharedCount1, setSharedCount1, { loading: loading1, error: error1 }] = useLocalStorage(
     'shared-counter',
     0
   );
-  const [sharedCount2, setSharedCount2, { loading: loading2, error: error2 }] = useSessionStorage(
+  const [sharedCount2, setSharedCount2, { loading: loading2, error: error2 }] = useLocalStorage(
     'shared-counter',
     0
   );

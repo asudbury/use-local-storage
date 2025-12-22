@@ -12,7 +12,7 @@ const preview: Preview = {
     docs: {
       description: {
         component:
-          'A powerful React hook for SessionStorage management with TypeScript support, serialization, and comprehensive event handling.',
+          'A powerful React hook for LocalStorage management with TypeScript support, serialization, and comprehensive event handling.',
       },
     },
     options: {

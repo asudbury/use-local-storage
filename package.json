@@ -1,7 +1,7 @@
 {
-  "name": "@asudbury/use-session-storage",
+  "name": "@asudbury/use-local-storage",
   "version": "1.0.0",
-  "description": "A powerful React hook for SessionStorage management with TypeScript support, serialization, and comprehensive event handling",
+  "description": "A powerful React hook for LocalStorage management with TypeScript support, serialization, and comprehensive event handling",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
   "types": "dist/index.d.ts",
@@ -27,7 +27,7 @@
     "format": "prettier --write src/**/*.{ts,tsx}",
     "format:check": "prettier --check src/**/*.{ts,tsx}",
     "docs:generate": "node scripts/generate-docs.js",
-    "docs:markdown": "jsdoc2md --files src/useSessionStorage.ts > docs/api.md",
+    "docs:markdown": "jsdoc2md --files src/useLocalStorage.ts > docs/api.md",
     "docs:build": "npm run docs:generate",
     "analyze": "node scripts/analyze-bundle.js",
     "release": "npm run test && npm run lint && npm run build && npm run analyze",
@@ -36,10 +36,10 @@
   "keywords": [
     "react",
     "hooks",
-    "sessionStorage",
+    "localStorage",
     "typescript",
     "storage",
-    "session",
+    "local",
     "state-management",
     "serialization"
   ],
@@ -47,12 +47,12 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/your-username/use-session-storage.git"
+    "url": "https://github.com/your-username/use-local-storage.git"
   },
   "bugs": {
-    "url": "https://github.com/your-username/use-session-storage/issues"
+    "url": "https://github.com/your-username/use-local-storage/issues"
   },
-  "homepage": "https://asudbury.github.io/use-session-storage",
+  "homepage": "https://asudbury.github.io/use-local-storage",
   "peerDependencies": {
     "react": ">=16.8.0",
     "react-dom": ">=16.8.0"

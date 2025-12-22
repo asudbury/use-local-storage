@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import useSessionStorage from '../useSessionStorage';
+import useLocalStorage from '../useLocalStorage';
 import { getButtonStyle, storyStyles } from './shared/storyStyles';
 
 const meta: Meta = {
@@ -23,7 +23,7 @@ const CustomSerializerExample = () => {
     stringify: (value: Date) => value.toISOString(),
   };
 
-  const [lastLogin, setLastLogin, { loading, error, remove, reset }] = useSessionStorage(
+  const [lastLogin, setLastLogin, { loading, error, remove, reset }] = useLocalStorage(
     'last-login',
     new Date(),
     { serializer: dateSerializer }

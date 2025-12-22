@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { useState } from 'react';
-import useSessionStorage from '../useSessionStorage';
+import useLocalStorage from '../useLocalStorage';
 import { getButtonStyle, storyStyles } from './shared/storyStyles';
 
 const meta: Meta = {
@@ -8,7 +8,7 @@ const meta: Meta = {
   parameters: {
     docs: {
       description: {
-        component: 'Basic boolean storage example using useSessionStorage.',
+        component: 'Basic boolean storage example using useLocalStorage.',
       },
     },
   },
@@ -18,7 +18,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 const BooleanStorageExample = () => {
-  const [isActive, setIsActive, { loading, error, remove, reset }] = useSessionStorage(
+  const [isActive, setIsActive, { loading, error, remove, reset }] = useLocalStorage(
     'user-active',
     true
   );
@@ -33,7 +33,7 @@ const BooleanStorageExample = () => {
       <div style={storyStyles.gradientHeader}>
         <h1 style={storyStyles.gradientHeaderTitle}>Boolean Storage</h1>
         <div style={{ fontSize: '1.1rem', color: '#fff', marginTop: 4 }}>
-          Basic boolean storage example using useSessionStorage.
+          Basic boolean storage example using useLocalStorage.
         </div>
       </div>
       <div style={storyStyles.card}>

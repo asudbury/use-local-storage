@@ -1,16 +1,16 @@
 import React from 'react';
-import useSessionStorage from './src/useSessionStorage';
+import useLocalStorage from './src/useLocalStorage';
 
 // Example component to demonstrate the hook
 const ExampleComponent: React.FC = () => {
-  const [name, setName, { loading, error, remove, reset }] = useSessionStorage(
+  const [name, setName, { loading, error, remove, reset }] = useLocalStorage(
     'example-name',
     'World'
   );
 
   return (
     <div style={{ padding: '20px', fontFamily: 'Arial, sans-serif' }}>
-      <h2>useSessionStorage Example</h2>
+      <h2>useLocalStorage Example</h2>
       <div style={{ marginBottom: '10px' }}>
         <label htmlFor="name-input">Name: </label>
         <input

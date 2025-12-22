@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { useState } from 'react';
-import useSessionStorage from '../useSessionStorage';
+import useLocalStorage from '../useLocalStorage';
 import { getButtonStyle, storyStyles } from './shared/storyStyles';
 
 const meta: Meta = {
@@ -8,7 +8,7 @@ const meta: Meta = {
   parameters: {
     docs: {
       description: {
-        component: 'Email validation example using useSessionStorage with a custom validator.',
+        component: 'Email validation example using useLocalStorage with a custom validator.',
       },
     },
   },
@@ -25,7 +25,7 @@ const EmailValidationExample = () => {
     return value;
   };
 
-  const [email, setEmail, { loading, error, remove, reset }] = useSessionStorage(
+  const [email, setEmail, { loading, error, remove, reset }] = useLocalStorage(
     'user-email',
     'john@example.com',
     { validator }
@@ -42,7 +42,7 @@ const EmailValidationExample = () => {
       <div style={storyStyles.gradientHeader}>
         <h1 style={storyStyles.gradientHeaderTitle}>Email Validation</h1>
         <div style={{ fontSize: '1.1rem', color: '#fff', marginTop: 4 }}>
-          Email validation example using useSessionStorage with a custom validator.
+          Email validation example using useLocalStorage with a custom validator.
         </div>
       </div>
       <div style={storyStyles.card}>

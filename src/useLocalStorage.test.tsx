@@ -1,6 +1,6 @@
-import { renderHook, act, waitFor } from '@testing-library/react';
+import { renderHook, waitFor } from '@testing-library/react';
 import { vi, describe, it, expect, beforeEach, afterEach } from 'vitest';
-import useSessionStorage from './useSessionStorage';
+import { useLocalStorage } from './useLocalStorage';
 
 interface TestValue {
   name: string;
@@ -10,22 +10,22 @@ interface TestValue {
 const key = 'test-key';
 const defaultValue: TestValue = { name: 'John', age: 30 };
 
-describe('useSessionStorage', () => {
+describe('useLocalStorage', () => {
   beforeEach(() => {
-    sessionStorage.clear();
+    localStorage.clear();
   });
 
   afterEach(() => {
     vi.clearAllMocks();
   });
 
-  it('should initialize with default value if sessionStorage is empty', () => {
-    const { result } = renderHook(() => useSessionStorage(key, defaultValue));
+  it('should initialize with default value if localStorage is empty', () => {
+    const { result } = renderHook(() => useLocalStorage(key, defaultValue));
     expect(result.current[0]).toEqual(defaultValue);
   });
 
   it('should store and retrieve value correctly', async () => {
-    const { result } = renderHook(() => useSessionStorage(key, defaultValue));
+    const { result } = renderHook(() => useLocalStorage(key, defaultValue));
 
     const newValue: TestValue = { name: 'Alice', age: 25 };
 
@@ -36,7 +36,7 @@ describe('useSessionStorage', () => {
   });
 
   it('should update value using function updater', async () => {
-    const { result } = renderHook(() => useSessionStorage(key, defaultValue));
+    const { result } = renderHook(() => useLocalStorage(key, defaultValue));
 
     await waitFor(() => {
       result.current[1]((prev) => ({ ...prev, age: prev.age + 1 }));
@@ -45,18 +45,18 @@ describe('useSessionStorage', () => {
   });
 
   it('should remove value and reset to default', async () => {
-    const { result } = renderHook(() => useSessionStorage(key, defaultValue));
+    const { result } = renderHook(() => useLocalStorage(key, defaultValue));
 
+    result.current[1]({ name: 'Bob', age: 50 });
+    result.current[2].remove();
     await waitFor(() => {
-      result.current[1]({ name: 'Bob', age: 50 });
-      result.current[2].remove();
       expect(result.current[0]).toEqual(defaultValue);
-      expect(sessionStorage.getItem(key)).toBeNull();
+      expect(localStorage.getItem(key)).toBeNull();
     });
   });
 
   it('should reset value to default', async () => {
-    const { result } = renderHook(() => useSessionStorage(key, defaultValue));
+    const { result } = renderHook(() => useLocalStorage(key, defaultValue));
 
     await waitFor(() => {
       result.current[1]({ name: 'New', age: 99 });
@@ -71,8 +71,8 @@ describe('useSessionStorage', () => {
       return value as TestValue;
     };
 
-    sessionStorage.setItem(key, JSON.stringify({ name: 'Valid', age: 20 }));
-    const { result } = renderHook(() => useSessionStorage(key, defaultValue, { validator }));
+    localStorage.setItem(key, JSON.stringify({ name: 'Valid', age: 20 }));
+    const { result } = renderHook(() => useLocalStorage(key, defaultValue, { validator }));
 
     expect(result.current[0]).toEqual({ name: 'Valid', age: 20 });
   });
@@ -85,7 +85,7 @@ describe('useSessionStorage', () => {
     };
 
     const { result } = renderHook(() =>
-      useSessionStorage(key, defaultValue, { validator, onError })
+      useLocalStorage(key, defaultValue, { validator, onError })
     );
 
     await waitFor(() => {

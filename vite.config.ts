@@ -9,7 +9,7 @@ export default defineConfig({
   build: {
     lib: {
       entry: resolve(__dirname, 'src/index.ts'),
-      name: 'UseSessionStorage',
+      name: 'UseLocalStorage',
       formats: ['es', 'cjs'],
       fileName: (format) => `index.${format === 'es' ? 'esm' : 'cjs'}.js`,
     },

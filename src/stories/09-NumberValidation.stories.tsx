@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { useState } from 'react';
-import useSessionStorage from '../useSessionStorage';
+import useLocalStorage from '../useLocalStorage';
 import { getButtonStyle, storyStyles } from './shared/storyStyles';
 
 const meta: Meta = {
@@ -32,7 +32,7 @@ const NumberValidationExample = () => {
     return value;
   };
 
-  const [score, setScore, { loading, error, remove, reset }] = useSessionStorage('game-score', 50, {
+  const [score, setScore, { loading, error, remove, reset }] = useLocalStorage('game-score', 50, {
     validator,
   });
 
