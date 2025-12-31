@@ -9,7 +9,6 @@ A powerful, production-ready React hook for LocalStorage management with compreh
 > **Explore the full documentation, architecture, and deep technical notes for this project on DeepWiki:**
 >
 > [![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/asudbury/use-local-storage)
->
 
 ## 🎯 Key Features
 
