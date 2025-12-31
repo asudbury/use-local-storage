@@ -1,6 +1,9 @@
 {
+  "publishConfig": {
+    "access": "public"
+  },
   "name": "@asudbury/use-local-storage",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A powerful React hook for LocalStorage management with TypeScript support, serialization, and comprehensive event handling",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
@@ -47,10 +50,10 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/your-username/use-local-storage.git"
+    "url": "https://github.com/asudbury/use-local-storage.git"
   },
   "bugs": {
-    "url": "https://github.com/your-username/use-local-storage/issues"
+    "url": "https://github.com/asudbury/use-local-storage/issues"
   },
   "homepage": "https://asudbury.github.io/use-local-storage",
   "peerDependencies": {
