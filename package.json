@@ -3,7 +3,7 @@
     "access": "public"
   },
   "name": "@asudbury/use-local-storage",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A powerful React hook for LocalStorage management with TypeScript support, serialization, and comprehensive event handling",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
